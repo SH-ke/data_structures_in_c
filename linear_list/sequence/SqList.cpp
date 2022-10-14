@@ -16,12 +16,29 @@ void InitList(SqList &L)
     // 顺序表初始长度为0
 }
 
-int main()
+
+bool ListInsert(SqList &L, int i, int e)
 {
-    SqList L;    // 声明一个顺序表
-    InitList(L); // 初始化顺序表
-    // 尝试"违规”打印整个data数组
-    for (int i = 0; i < MaxSize; i++)
-        printf("data[%d]=%d\n", i, L.data[i]);
-    return 0;
+    // beta 版增加了对数组容量和插入位置的判断
+    if (i < 1 || i > L.length + 1)      // 判断i的范围是否有效
+        return false;
+    if (L.length >= MaxSize)            // 当前存储空间已满，不能插入
+        return false;
+    for (int j = L.length; j >= i; j--) // 将第i个元素及之后的元素后移
+        L.data[j] = L.data[j - 1];
+    L.data[i - 1] = e;                  // 在位置i处放入e
+    L.length++;                         // 长度加1
+    return true;
+}
+
+
+bool ListDelete(SqList &L, int i, int &e)
+{
+    if (i < 1 || i > L.length) // 判断i的范围是否有效
+        return false;
+    e = L.data[i - 1];                 // 将被删除的元素赋值给e
+    for (int j = i; j < L.length; j++) // 将第i个位置后的元素前移
+        L.data[j - 1] = L.data[j];
+    L.length--; // 线性表长度减1
+    return true;
 }

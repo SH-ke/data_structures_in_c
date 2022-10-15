@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+typedef int ElemType;
 #define InitSize 10 // 默认的最大长度
 typedef struct
 {
@@ -29,6 +30,30 @@ void Increasesize(SeqList &L, int len)
     }
     L.MaxSize = L.MaxSize + len;  // 顺序表最大长度增加 len
     free(p);                      // 释放原来的内存空间
+}
+
+
+// 按位查找操作。获取表L中第i个位置的元素的值
+ElemType GetElem(SeqList L,int i)
+{
+    // ToDo: 添加对数组索引合法性的判断
+    return L.data[i-1];
+}
+/* 
+L.data=(int *)malloc(Initsize*sizeof(int));
+    再次理解，为何 malloc 函数返回的存储空间起始地址要转换为
+    与数据元素的数据类型相对应的指针
+ */
+
+
+// 按值查找操作。在表L中查找具有给定关键字值的元素
+//在顺序表L中查找第一个元素值等于的元素，并返回其位序
+int LocateElem(SeqList L, ElemType e)
+{
+    for (int i = 0; i < L.length; i++)
+        if (L.data[i] == e)
+            return i + 1; // 数组下标为i的元素值等于e,返回其位序i+1
+    return 0; // 退出循环，说明查找失败
 }
 
 

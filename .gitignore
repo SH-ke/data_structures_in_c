@@ -2,3 +2,7 @@
 *.exe
 # 测试代码
 *_test_*
+# 点开头的文件
+.*
+.vscode
+venv

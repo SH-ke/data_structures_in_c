@@ -115,3 +115,64 @@ int LocateElem(SeqList L, ElemType e)
   $i=2$时，循环$2$次；
   $i=n$时，循环$n$次
   平均循环次数为$1\cdot \frac{1}{n}+2\cdot \frac{1}{n}+\cdots+n\cdot \frac{1}{n}=\frac{n(n+1)}{2}\frac{1}{n}=\frac{n+1}{2}$
+
+## 单链表
+
+顺序表的特点
+
+**优点**：可随机存取，存储密度高
+**缺点**：要求大片连续空间，改变容量不方便
+
+单链表的特点
+
+**优点**：不要求大片连续空间，改变容量方便
+**缺点**：不可随机存取，要耗费一定空间存放指针
+
+### typedef 关键字
+
+使用方法演示
+
+```c++
+// typedef<数据类型><别名>
+typedef int zhengshu;
+typedef int *zhengshuzhizhen;
+int x = 1;
+int *p;
+
+// 以上代码「等价于」
+zhengshu x = 1;
+zhengshuzhizhen p;
+```
+
+### 定义数据结构
+
+分别使用 LNode, LinkList 两个关键字来表示单个节点和整个单链表（头指针/头节点）
+
+```c++
+typedef int ElemType;
+typedef struct LNode    //定义单链表结点类型
+{
+    ElemType data;      //每个节点存放一个数据元素
+    struct LNode *next; //指针指向下一个节点
+} LNode, *LinkList;
+
+// 以上代码的等价详细写法如下
+struct LNode            //定义单链表结点类型
+{
+    ElemType data;      //每个节点存放一个数据元素
+    struct LNode *next; //指针指向下一个节点
+};
+
+typedef struct LNode LNode;
+typedef struct LNode *LinkList;
+// 要表示一个单链表时，只需声明一个头指针L, 指向单链表的第一个结点
+LNode *L;   //声明一个指向单链表第一个结点的指针
+LinkList L; //声明一个指向单链表第一个结点的指针。代码可读性更强
+```
+
+### 初始化
+
+不带头结点的单链表，代码实现
+
+```c++
+

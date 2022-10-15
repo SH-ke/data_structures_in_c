@@ -170,9 +170,42 @@ LNode *L;   //声明一个指向单链表第一个结点的指针
 LinkList L; //声明一个指向单链表第一个结点的指针。代码可读性更强
 ```
 
-### 初始化
+### 插入操作
 
-不带头结点的单链表，代码实现
+代码实现
+
+```c
+// 插入操作。在表L中的第i个位置上插入指定元素e。
+// 在第1个位置插插入元素e(带头结点)
+// 平均时间复杂度 O(n)
+bool ListInsert(LinkList &L, int i, ElemType e);
+
+//后插操作：在p结点之后插入元素e
+// 时间复杂度 O(1)
+bool InsertNextNode(LNode *p, ElemType e);
+
+// 前插操作：在p结点之前插入元素e
+// 时间复杂度 O(n)
+bool InsertpriorNode(LinkList L, LNode *p, ElemType e);
+
+// 前插操作：在p结点之前插入元素e
+// 时间复杂度 O(1)
+bool InsertPriorNode(LNode *p, ElemType e);
+```
+
+### 删除操作
+
+代码实现
 
 ```c++
+// 删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值
+// 最好时间复杂度 O(1)  最坏、平均时间复杂度 O(n)
+bool ListDelete(LinkList &L, int i, ElemType &e);
 
+//删除指定结点p 存在bug
+// 时间复杂度 O(1)
+bool DeleteNode(LNode *p);
+
+// 时间复杂度 O(n)
+bool DeleteNode(LinkList &L, LNode *p);
+```

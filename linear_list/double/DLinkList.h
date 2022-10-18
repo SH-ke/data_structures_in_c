@@ -5,9 +5,9 @@
 typedef int ElemType;
 
 typedef struct DNode
-{                               //定义双链表结点类型
-    ElemType data;              //数据域
-    struct DNode *prior, *next; //前驱和后继指针
+{                               // 定义双链表结点类型
+    ElemType data;              // 数据域
+    struct DNode *prior, *next; // 前驱和后继指针
 } DNode, *DLinklist;
 
 
@@ -20,10 +20,7 @@ bool Empty(DLinklist L);
 // 在p结点之后插入s结点
 bool InsertNextDNode(DNode *p, DNode *s);
 
-// 在p结点之后插入s结点
-bool InsertNextDNode(DNode *p, DNode *s);
-
 void DestoryList(DLinklist &L);
 
-//删除p结点的后继结点
+// 删除p结点的后继结点
 bool DeleteNextDNode(DNode *p);

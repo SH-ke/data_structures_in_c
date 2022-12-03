@@ -32,8 +32,11 @@ bool InsertPriorNode(LNode *p, ElemType e);
 // 删除操作。删除表L中第i个位置的元素，并用e返回删除元素的值
 bool ListDelete(LinkList &L, int i, ElemType &e);
 
-//删除指定结点p
+// 删除指定结点p
 bool DeleteNode(LNode *p);
+
+// 销毁链表
+bool Destroy(LinkList L);
 
 // 按位查找操作。获取表L中第个位置的元素的值。
 // 按位查找，返回第i个元素(带头结点)

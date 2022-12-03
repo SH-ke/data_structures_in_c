@@ -39,6 +39,9 @@ int main()
     x = 524;
     printf("x = %d, counter = %d\n", x, CountX(L, x));
 
+    // 销毁链表
+    Destroy(L);
+
     return 0;
 }
 

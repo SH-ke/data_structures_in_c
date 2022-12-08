@@ -1,8 +1,6 @@
 CC = gcc
 # 包目录，库所在的目录
 INCLUDE_PATH = D:\DataBase_SHke_dev\Clang\data_structures_in_c\pkgs\LinkList
-# 当前工作目录
-WS_PATH = $(INCLUDE_PATH)
 
 # 获取 INCLUDE_PATH 目录下的  *.cpp 文件
 # 同时剔除 demo.cpp
@@ -16,15 +14,15 @@ ALL: main
 main: $(SRC)
 # 在其他目录下编译需要复制 LinkList.h 文件
 # LinkList.h 与 main.cpp 文件应在同一目录下
-#	@copy $(INCLUDE_PATH)\LinkList.h $(WS_PATH)\LinkList.h
+#	@copy $(INCLUDE_PATH)\LinkList.h LinkList.h
 
 # 以 demo.cpp 编译为例
-	$(CC) -o $(WS_PATH)\main.exe $(WS_PATH)\demo.cpp $(SRC)
+	$(CC) -o main.exe demo.cpp $(SRC)
 	echo $(SRC)
 
 .PHONY:clean
 clean:
-# 	@del -rf $(WS_PATH)\main.exe, $(WS_PATH)\LinkList.h
+# 	@del -rf main.exe, LinkList.h
 
-	@del -rf $(WS_PATH)\main.exe
+	@del -rf main.exe
 	@echo cleaned workspace
